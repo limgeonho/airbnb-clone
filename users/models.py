@@ -41,8 +41,10 @@ class User(AbstractUser):
         (LOGING_KAKAO, "Kakao"),
     )
 
-    avatar = models.ImageField(upload_to="avatars", blank=True)
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
+    avatar = models.ImageField(upload_to="avatars", blank=True, null=True)
+    gender = models.CharField(
+        choices=GENDER_CHOICES, max_length=10, blank=True, null=True
+    )
     bio = models.TextField(blank=True)
     birthdate = models.DateField(blank=True, null=True)
     language = models.CharField(
